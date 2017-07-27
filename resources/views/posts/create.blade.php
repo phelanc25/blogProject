@@ -9,7 +9,7 @@
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<h1>Creaet New Post</h1>
+			<h1>Create New Post</h1>
 			<hr>
 			<!-- creating new post entry form -->
 			<form method="POST" action="{{ route('posts.store') }}">
@@ -30,9 +30,5 @@
 			</form>
 		</div>
 	</div>
-
-
-
-
 
 @endsection <!-- end of main content -->

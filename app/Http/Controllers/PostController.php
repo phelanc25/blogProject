@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+Use App\Post;
+
 class PostController extends Controller
 {
     /**
@@ -17,6 +19,7 @@ class PostController extends Controller
     public function index()
     {
         //
+        return view('posts.index');
     }
 
     /**
@@ -38,7 +41,24 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // calling function to get validation rules
+        // Validating data from form
+        $this -> validate($request,[
+                'title' =>'required|max:255',
+                'body'  =>'required'
+            ]);
+
+        // Storing data to the post table of the blog database
+        $post= new Post;
+
+        $post->title=$request->title;
+        $post->body=$request->body;
+
+        $post->save();
+
+        // Redirecting to the index page
+        return redirect()->route('posts.index');
+
     }
 
     /**
