@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 Use App\Post;
+Use Session;
 
 class PostController extends Controller
 {
@@ -55,6 +54,10 @@ class PostController extends Controller
         $post->body=$request->body;
 
         $post->save();
+
+        // passing success message to user
+        Session::flash('success','Blog post was successfully saved');
+
 
         // Redirecting to the index page
         return redirect()->route('posts.index');
