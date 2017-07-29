@@ -45,12 +45,12 @@
 								<!-- formating the date to exclude the time -->
 								<td>{{date('M j, Y', strtotime($post->created_at))}}</td>
 								<td>
-									<!-- Creating edit post button-->
-									<a href="{{ route('posts.edit',$post->id) }}" class="btn btn-default btn-sm">Edit</a>
-									<!-- creating delete post button-->
-									<a href="{{ route('posts.destroy',$post->id) }}" class="btn btn-default btn-sm">Delete</a>
-
+									
+									<!-- button to take user to post details -->
+									<a href="{{ route('posts.show',$post->id) }}" class="btn btn-info btn-md">View Post</a>
+									
 								</td>
+								
 							</tr>
   						@endforeach
   					</tbody>

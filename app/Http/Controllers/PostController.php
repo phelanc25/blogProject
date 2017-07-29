@@ -74,7 +74,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        // finding post in the database and saving info into a variable
+        $post=Post::find($id);
+        // returning show.blade.php
+        return view('posts.show')->withPost($post);
     }
 
     /**
@@ -85,7 +88,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        // finding the post in the database and saving info in a variable
+        $post=Post::find($id);
+        // returning the view and passing in the variable
+        return view('posts.edit')->withPost($post);
     }
 
     /**
@@ -97,7 +103,26 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // calling function to get validation rules
+        // Validating data from form
+        $this -> validate($request,[
+                'title' =>'required|max:255',
+                'body'  =>'required'
+            ]);
+
+        // Storing data to the post table of the blog database
+        $post= Post::find($id);
+
+        $post->title=$request->title;
+        $post->body=$request->body;
+
+        $post->save();
+
+        // passing success message to user
+        Session::flash('success','Blog post was successfully updated');
+
+        // Redirecting to the index page
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -108,6 +133,16 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // finding post in database with id
+        $post=Post::find($id);
+
+        // deleting the post 
+        $post->delete();
+
+        // setting flash message for successful deletion
+        Session::flash('success','Blog post was deleted.');
+
+        // redirecting to the index page
+        return redirect()->route('posts.index');
     }
 }
