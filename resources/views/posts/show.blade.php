@@ -35,9 +35,22 @@
 					<p>{{date('M j, Y g:i A',strtotime($post->updated_at))}}</p>
 				</dl>	
 				<hr>
-				<!-- bootstrap dropdown with actions that can be performed on post -->
-				<a href="{{ route('posts.edit',$post->id) }}" class="btn btn-info btn-md">Edit Post</a>
+				<!-- button to edit post -->
+				<div class="row">
+					<div class="col-sm-6">
+						<a href="{{ route('posts.edit',$post->id) }}" class="btn btn-info btn-md btn-block">Edit Post</a>
+					</div>
+				
 
+					<!-- making button to delete post -->
+					<form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+						<div class="col-sm-6">
+							{{method_field('DELETE')}}
+							<input type="submit" value="Delete" class="btn btn-danger btn-md btn-block">
+							<input type="hidden" name="_token" value="{{ Session::token() }}">
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
