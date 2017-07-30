@@ -15,12 +15,17 @@
 
       <div class="row">
         <div class="col-md-8">
-          
+
+          <!-- looping through $posts variable that was passed in via pagescontroller.php and showing to screen -->          
           @foreach($posts as $post)
 
           <div class="post">
+            <!-- Showing title of current post in $posts variable.. -->
             <h1>{{$post->title}}</h1>
-            <p>{{$post->body}}</p>
+            <!-- Showing truncated body of current post in $posts variable.. -->
+
+            <p>{{substr($post->body,0,50)}}{{strlen($post->body)>50?"..." : "" }}</p>
+            <!-- creating link of current post in $posts variable.. -->
             <a href="#" class="btn btn-primary">Read More</a>
           </div>
 
@@ -28,7 +33,7 @@
 
           @endforeach
   
-        </div>
+        </div> <!-- end of listing 5 most recent posts -->
 
         <!--- Creating a sidebar -->
         <div class="col-md-3 col-md-offset-1">

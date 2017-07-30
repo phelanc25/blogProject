@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
-//use App\Post;
+use App\Post;
 
 class PagesController extends Controller{
 
 	public function getIndex(){
-		//$posts=Post::orderBy('id','desc')->limit(5)->get();
-		//return view('pages.welcome')->withPosts($posts);
-		return view('pages.welcome');
+		// Adding 5 most recent posts to $posts variable that is passing int othe pages.welcome view.
+		$posts=Post::orderBy('id','desc')->limit(5)->get();
+		// returning pages.welcome view and passing in $posts variable that is holding 5 most recent posts.
+		return view('pages.welcome')->withPosts($posts);
 	}
 
 	public function getAbout(){

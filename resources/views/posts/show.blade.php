@@ -51,7 +51,17 @@
 						</div>
 					</form>
 				</div>
+				<br>
+
+				<!-- creating row to hold button to return to index -->
+				<div class="row">
+					<div class="col-sm-12">
+						<a href="{{ route('posts.index') }}" class="btn btn-info btn-md btn-block">See All Post</a>
+					</div>
+				</div>
+
 			</div>
+
 		</div>
 	</div>
 
