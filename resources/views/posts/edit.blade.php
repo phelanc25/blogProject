@@ -24,6 +24,11 @@
 					<!-- Passing title field of post into title textbox -->
 					<input id="title" name="title" class="form-control" required="" maxlength="255" value="{{$post->title}}">
 				</div>
+				<!-- 7/31/17 creating field for slug information -->
+				<div class="form-group">
+					<label name="title">Slug:</label>
+					<input id="slug" name="slug" class="form-control" required="" minlength="5" maxlength="255" value="{{$post->slug}}">
+				</div>
 				<!-- creating body field -->
 				<div class="form-group">
 					<label name="body">Post Body:</label>
@@ -38,7 +43,7 @@
 				<input type="hidden" name="_token" value="{{ Session::token() }}">
 				<br>
 				<!-- creating button to cancel changes. will take back to index -->
-				<a href="{{ route('posts.index') }}" class="btn btn-danger btn-lg btn-block">Cancel</a>
+				<a href="{{ route('posts.show',$post->id) }}" class="btn btn-danger btn-lg btn-block">Cancel</a>
 				
 			</form>
 		</div>

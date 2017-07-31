@@ -24,6 +24,11 @@
 		<!-- creating container in sidebar to store action buttons (edit/delete)-->
 		<div class="col-md-4">
 			<div class="well">
+				<!-- showing url slug for post -->
+				<dl class="dl-horizontal">
+					<label>URL:</label>
+					<p><a href="{{url($post->slug)}}">{{url($post->slug)}}</a></p>
+				</dl>
 				<!-- showing the date the blog post was created -->
 				<dl class="dl-horizontal">
 					<label>Created At:</label>

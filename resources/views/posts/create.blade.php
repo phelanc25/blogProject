@@ -23,6 +23,11 @@
 					<label name="title">Title:</label>
 					<input id="title" name="title" class="form-control" required="" maxlength="255">
 				</div>
+				<!-- 7/31/17 creating field for slug information -->
+				<div class="form-group">
+					<label name="title">Slug:</label>
+					<input id="slug" name="slug" class="form-control" required="" minlength="5" maxlength="255">
+				</div>
 				<!-- creating body field -->
 				<div class="form-group">
 					<label name="body">Post Body:</label>
