@@ -27,7 +27,7 @@
 				<!-- showing url slug for post -->
 				<dl class="dl-horizontal">
 					<label>URL:</label>
-					<p><a href="{{url($post->slug)}}">{{url($post->slug)}}</a></p>
+					<p><a href="{{ route('blog.single',$post->slug) }}">{{ route('blog.single',$post->slug) }}</a></p>
 				</dl>
 				<!-- showing the date the blog post was created -->
 				<dl class="dl-horizontal">

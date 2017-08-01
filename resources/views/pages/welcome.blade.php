@@ -26,7 +26,7 @@
 
             <p>{{substr($post->body,0,50)}}{{strlen($post->body)>50?"..." : "" }}</p>
             <!-- creating link of current post in $posts variable.. -->
-            <a href="#" class="btn btn-primary">Read More</a>
+            <a href="{{ route('blog.single',$post->slug) }}" class="btn btn-primary">Read More</a>
           </div>
 
           <hr>
